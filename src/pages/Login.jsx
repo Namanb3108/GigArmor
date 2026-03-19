@@ -199,15 +199,18 @@ export default function Login() {
               <h2 style={{ fontFamily: 'Fraunces, serif', fontSize: 26, color: '#0F2340', marginBottom: 8 }}>Enter OTP</h2>
               <p style={{ fontSize: 14, color: '#6B7280', marginBottom: 36 }}>Sent to +91 {form.phone || '98765 43210'}</p>
 
-              <div style={{ display: 'flex', gap: 12, marginBottom: 8 }}>
+              <div style={{ display: 'flex', gap: 10, marginBottom: 8, width: '100%' }}>
                 {otp.map((d, i) => (
                   <input key={i} id={`otp-${i}`} maxLength={1} value={d}
                     onChange={e => handleOtpChange(e.target.value, i)}
                     style={{
-                      flex: 1, height: 60, border: '1.5px solid ' + (d ? '#E8581A' : '#E5E7EB'),
-                      borderRadius: 10, textAlign: 'center', fontSize: 24, fontWeight: 700,
+                      width: '22%', minWidth: 0, height: 56,
+                      border: '1.5px solid ' + (d ? '#E8581A' : '#E5E7EB'),
+                      borderRadius: 10, textAlign: 'center', fontSize: 22, fontWeight: 700,
                       color: '#0F2340', outline: 'none', background: '#fff', transition: 'border-color 0.2s',
                     }}
+                    onFocus={e => e.target.style.borderColor = '#E8581A'}
+                    onBlur={e => e.target.style.borderColor = d ? '#E8581A' : '#E5E7EB'}
                   />
                 ))}
               </div>
@@ -268,7 +271,7 @@ export default function Login() {
               <div style={{ marginBottom: 14 }}><Field label="Work Email" placeholder="name@insurer.com" type="email" value={form.email} onChange={v => setForm({ ...form, email: v })} /></div>
               <div style={{ marginBottom: 14 }}><Field label="Password" type="password" placeholder="••••••••••" value={form.password} onChange={v => setForm({ ...form, password: v })} /></div>
               <div style={{ marginBottom: 20 }}>
-                <Field label="Organisation" type="select" value="" onChange={() => {}} options={['GigShield Underwriters', 'PolicyBase India', 'Bajaj Allianz Partner']} />
+                <Field label="Organisation" type="select" value={form.org || ''} onChange={v => setForm({ ...form, org: v })} options={['GigShield Underwriters', 'PolicyBase India', 'Bajaj Allianz Partner']} />
               </div>
 
               <label style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: 13, color: '#374151', marginBottom: 24, cursor: 'pointer' }}>
