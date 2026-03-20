@@ -379,8 +379,8 @@ DEV VERMA
 
 ## 📎 Links
 
-- **Repository:** *(This repo)*
-- **Demo Video (Phase 1):** *(Add link after recording)*
+- https://github.com/Namanb3108/GigShield.git
+- https://drive.google.com/file/d/1cNmKyi0CGn1Z57Otyc2Uuw5r_uMv9n-h/view?usp=sharing
 
 ---
 
